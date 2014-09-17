@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @class FLMwipostsModule
+ * @class FLSimplePostsModule
  */
 class FLSimplePostsModule extends FLBuilderModule {
 
@@ -17,8 +17,8 @@ class FLSimplePostsModule extends FLBuilderModule {
             'name'          => __('Simple Posts', 'fl-builder'),
             'description'   => __('An example for coding new modules.', 'fl-builder'),
             'category'		=> __('Advanced Modules', 'fl-builder'),
-            'dir'           => FL_MODULE_EXAMPLES_DIR . 'simple-posts/',
-            'url'           => FL_MODULE_EXAMPLES_URL . 'simple-posts/',
+            'dir'           => FL_SIMPLE_POSTS_DIR . 'simple-posts/',
+            'url'           => FL_SIMPLE_POSTS_URL . 'simple-posts/',
             'editor_export' => true, // Defaults to true and can be omitted.
             'enabled'       => true, // Defaults to true and can be omitted.
         ));
@@ -97,14 +97,14 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                     'posts_per_page' => array(
                         'type'      => 'text',
                         'label'         => __('Posts per page', 'fl-builder'),
+                    ),
+                    'offset' => array(
+                        'type'      => 'text',
+                        'label'         => __('Offset', 'fl-builder'),
                     )
                 )
             )
         )
-    ),
-    'include'       => array( // Tab
-        'title'         => __('Include', 'fl-builder'), // Tab title
-        'file'          => FL_MODULE_EXAMPLES_DIR . 'simple-posts/includes/settings-example.php'
     ),
     'content'   => array(
         'title'         => __('Content', 'fl-builder'),

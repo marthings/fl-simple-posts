@@ -6,8 +6,8 @@
  * Author: MWi AB
  * Author URI: http://mwi.se
  */
-define('FL_MODULE_EXAMPLES_DIR', plugin_dir_path(__FILE__));
-define('FL_MODULE_EXAMPLES_URL', plugins_url('/', __FILE__));
+define('FL_SIMPLE_POSTS_DIR', plugin_dir_path(__FILE__));
+define('FL_SIMPLE_POSTS_URL', plugins_url('/', __FILE__));
 
 if(class_exists('FLBuilder')) {
 
