@@ -8,11 +8,5 @@
  * $id The module's ID.
  * $settings The module's settings.
  *
- * Example:
  */
 
-.fl-node-<?php echo $id; ?>:after {
-    content: '<?php echo $settings->template; ?>';
-}
-
-<?php $module->example_method(); ?>

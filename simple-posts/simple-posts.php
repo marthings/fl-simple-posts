@@ -29,10 +29,8 @@ class FLSimplePostsModule extends FLBuilderModule {
          */
         // Already registered
         $this->add_css('font-awesome');
-        $this->add_js('jquery-bxslider');
 
         // Register and enqueue your own
-        $this->add_css('example-lib', $this->url . 'css/example-lib.css');
         $this->add_js('example-lib', $this->url . 'js/example-lib.js', array(), '', true);
     }
 
@@ -45,8 +43,6 @@ class FLSimplePostsModule extends FLBuilderModule {
      */
     public function update($settings)
     {
-        $settings->textarea_field .= ' - this text was appended in the update method.';
-
         return $settings;
     }
 
@@ -87,11 +83,12 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                 'fields'        => array( // Section Fields
                     'template'   => array(
                         'type'          => 'select',
-                        'label'         => __('Select post', 'fl-builder'),
+                        'label'         => __('Select template', 'fl-builder'),
                         'default'       => 'normal',
                         'options'       => array(
                             'grid'      => __('grid', 'fl-builder'),
                             'normal'      => __('normal', 'fl-builder'),
+                            'portfolio'      => __('portfolio', 'fl-builder'),
                         )
                     ),
                     'posts_per_page' => array(
@@ -100,7 +97,79 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                     ),
                     'offset' => array(
                         'type'      => 'text',
+                        'default'       => '10',
                         'label'         => __('Offset', 'fl-builder'),
+                    ),
+                    'heading_size'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Heading size', 'fl-builder'),
+                        'default'       => 'h2',
+                        'options'       => array(
+                            'h2'      => __('h2', 'fl-builder'),
+                            'h3'      => __('h3', 'fl-builder'),
+                        )
+                    ),
+                    'show_thumbnail'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Show thumbnail', 'fl-builder'),
+                        'default'       => 'no',
+                        'options'       => array(
+                            'yes'      => __('yes', 'fl-builder'),
+                            'no'      => __('no', 'fl-builder'),
+                            'custom'      => __('custom thumbnail size', 'fl-builder'),
+                        ),
+                        'toggle'        => array(
+                            'yes'      => array(
+                                'fields'        => array('thumb_size')
+                            ),
+                            'no'      => array()
+                        )
+                    ),
+                    'thumb_size'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Thumbnail size', 'fl-builder'),
+                        'default'       => 'thumbnail',
+                        'options'       => array(
+                            'thumbnail'      => __('thumbnail', 'fl-builder'),
+                            'medium'      => __('medium', 'fl-builder'),
+                            'large'      => __('large', 'fl-builder'),
+                        )
+                    ),
+                    'show_category'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Show categories', 'fl-builder'),
+                        'default'       => 'no',
+                        'options'       => array(
+                            'yes'      => __('yes', 'fl-builder'),
+                            'no'      => __('no', 'fl-builder'),
+                        )
+                    ),
+                    'show_date'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Show date', 'fl-builder'),
+                        'default'       => 'no',
+                        'options'       => array(
+                            'yes'      => __('yes', 'fl-builder'),
+                            'no'      => __('no', 'fl-builder'),
+                        )
+                    ),
+                    'show_author'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Show author', 'fl-builder'),
+                        'default'       => 'no',
+                        'options'       => array(
+                            'yes'      => __('yes', 'fl-builder'),
+                            'no'      => __('no', 'fl-builder'),
+                        )
+                    ),
+                    'show_excerpt'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Show excerpt', 'fl-builder'),
+                        'default'       => 'yes',
+                        'options'       => array(
+                            'yes'      => __('yes', 'fl-builder'),
+                            'no'      => __('no', 'fl-builder'),
+                        )
                     )
                 )
             )

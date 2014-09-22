@@ -1,4 +1,9 @@
 /**
- * This file should contain frontend styles that 
+ * This file should contain frontend styles that
  * will be applied to all module instances.
  */
+ .fl-simple-post-normal .fl-sp-meta {
+ 	margin-bottom:10px;
+ }
+
+
