@@ -89,6 +89,21 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                             'grid'      => __('grid', 'fl-builder'),
                             'normal'      => __('normal', 'fl-builder'),
                             'portfolio'      => __('portfolio', 'fl-builder'),
+                        ),
+                        'toggle'        => array(
+                            'grid'      => array(
+                                'fields'        => array('grid_size')
+                            )
+                        )
+                    ),
+                    'grid_size'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Grid size', 'fl-builder'),
+                        'default'       => '4',
+                        'options'       => array(
+                            '6'      => __('2 columns', 'fl-builder'),
+                            '4'      => __('3 columns', 'fl-builder'),
+                            '3'      => __('4 columns', 'fl-builder'),
                         )
                     ),
                     'posts_per_page' => array(
@@ -116,7 +131,6 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                         'options'       => array(
                             'yes'      => __('yes', 'fl-builder'),
                             'no'      => __('no', 'fl-builder'),
-                            'custom'      => __('custom thumbnail size', 'fl-builder'),
                         ),
                         'toggle'        => array(
                             'yes'      => array(
@@ -133,7 +147,18 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                             'thumbnail'      => __('thumbnail', 'fl-builder'),
                             'medium'      => __('medium', 'fl-builder'),
                             'large'      => __('large', 'fl-builder'),
+                            'custom'      => __('custom', 'fl-builder'),
+                        ),
+                        'toggle'        => array(
+                            'custom'      => array(
+                                'fields'        => array('custom_thumb')
+                            )
                         )
+                    ),
+                    'custom_thumb' => array(
+                        'type'      => 'text',
+                        'default'       => '',
+                        'label'         => __('Your size', 'fl-builder'),
                     ),
                     'show_category'   => array(
                         'type'          => 'select',

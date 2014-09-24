@@ -27,7 +27,15 @@ if($query->have_posts()) :
 
 		$query->the_post();
 
-		include $module->dir . 'includes/template-' . $settings->template . '.php';
+		if ($settings->template == 'grid' ) {
+			echo '<div class="row">';
+			include $module->dir . 'includes/template-grid.php';
+			echo '</div>';
+		} else {
+
+			include $module->dir . 'includes/template-' . $settings->template . '.php';
+
+		}
 	}
 
 	?>
