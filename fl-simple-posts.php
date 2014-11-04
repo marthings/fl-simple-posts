@@ -6,6 +6,9 @@
  * Author: MWi AB
  * Author URI: http://mwi.se
  */
+// Load text domain
+load_plugin_textdomain( 'fl-simple-posts', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+
 define('FL_SIMPLE_POSTS_DIR', plugin_dir_path(__FILE__));
 define('FL_SIMPLE_POSTS_URL', plugins_url('/', __FILE__));
 
