@@ -23,20 +23,45 @@ if($query->have_posts()) :
 <div class="fl-simple-post fl-simple-post-<?php echo $settings->template; ?>" itemscope="itemscope" itemtype="http://schema.org/Blog">
 	<?php
 
-	  while($query->have_posts()) {
+	if ($settings->template == 'grid' ) {
 
-		$query->the_post();
+		echo '<div class="row">';
 
-		if ($settings->template == 'grid' ) {
-			echo '<div class="row">';
-			include $module->dir . 'includes/template-grid.php';
-			echo '</div>';
-		} else {
+		while($query->have_posts()) {
 
-			include $module->dir . 'includes/template-' . $settings->template . '.php';
+			$query->the_post();
+
+				include $module->dir . 'includes/template-grid.php';
+
+		}
+
+		echo '</div>';
+
+	} elseif ($settings->template == 'list' ) {
+
+		echo '<ul class=' . $settings->list_class . '>';
+
+		while($query->have_posts()) {
+
+			$query->the_post();
+
+				include $module->dir . 'includes/template-list.php';
+
+		}
+
+		echo '</ul>';
+
+	} else {
+
+		while($query->have_posts()) {
+
+			$query->the_post();
+
+				include $module->dir . 'includes/template-' . $settings->template . '.php';
 
 		}
 	}
+
 
 	?>
 </div>

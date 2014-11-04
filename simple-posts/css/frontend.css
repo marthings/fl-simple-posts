@@ -6,4 +6,9 @@
  	margin-bottom:10px;
  }
 
+ .fl-sp-thumbnail img {
+ 	max-width: 100%;
+ 	height:auto;
+ }
+
 
