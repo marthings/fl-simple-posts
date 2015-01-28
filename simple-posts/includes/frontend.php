@@ -39,7 +39,7 @@ if($query->have_posts()) :
 
 	} elseif ($settings->template == 'list' ) {
 
-		echo '<ul class=' . $settings->list_class . '>';
+		echo '<ul class="' . $settings->list_class . '">';
 
 		while($query->have_posts()) {
 
