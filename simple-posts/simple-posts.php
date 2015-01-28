@@ -149,7 +149,7 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                         'options'       => array(
                             'h2'      => __('h2', 'fl-simple-posts'),
                             'h3'      => __('h3', 'fl-simple-posts'),
-                            'none'      => __('none', 'fl-simple-posts'),
+                            'p'      => __('Paragraph', 'fl-simple-posts'),
                         )
                     ),
                     'show_thumbnail'   => array(
