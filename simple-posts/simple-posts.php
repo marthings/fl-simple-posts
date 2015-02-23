@@ -27,11 +27,6 @@ class FLSimplePostsModule extends FLBuilderModule {
          * Use these methods to enqueue css and js already
          * registered or to register and enqueue your own.
          */
-        // Already registered
-        $this->add_css('font-awesome');
-
-        // Register and enqueue your own
-        $this->add_js('example-lib', $this->url . 'js/example-lib.js', array(), '', true);
     }
 
     /**
@@ -141,6 +136,20 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                     'posts_per_page' => array(
                         'type'      => 'text',
                         'label'         => __('Posts per page', 'fl-simple-posts'),
+                    ),
+                    'show_heading'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Show heading', 'fl-simple-posts'),
+                        'default'       => 'no',
+                        'options'       => array(
+                            'yes'      => __('yes', 'fl-simple-posts'),
+                            'no'      => __('no', 'fl-simple-posts'),
+                        ),
+                        'toggle'        => array(
+                            'yes'      => array(
+                                'fields'        => array('heading_size')
+                            )
+                        )
                     ),
                     'heading_size'   => array(
                         'type'          => 'select',

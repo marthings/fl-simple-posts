@@ -20,11 +20,7 @@
 
 			<div class="fl-sp-content">
 
-			<?php if ($settings->heading_size == 'none' ) { ?>
-
-				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-
-			<?php } else { ?>
+			<?php if ($settings->show_heading == 'yes' ) { ?>
 
 			<<?php echo $settings->heading_size; ?> class="fl-sp-heading"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></<?php echo $settings->heading_size; ?>>
 
