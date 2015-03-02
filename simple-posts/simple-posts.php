@@ -87,7 +87,7 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                         ),
                         'toggle'        => array(
                             'grid'      => array(
-                                'fields'        => array('grid_size')
+                                'fields'        => array('grid_size','grid_gutter','grid_spacing')
                             ),
                             'normal'      => array(
                                 'fields'        => array('normal_layout')
@@ -128,10 +128,22 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                         'label'         => __('Grid size', 'fl-simple-posts'),
                         'default'       => '4',
                         'options'       => array(
-                            '6'      => __('2 columns', 'fl-simple-posts'),
-                            '4'      => __('3 columns', 'fl-simple-posts'),
-                            '3'      => __('4 columns', 'fl-simple-posts'),
+                            '2'      => __('2 columns', 'fl-simple-posts'),
+                            '3'      => __('3 columns', 'fl-simple-posts'),
+                            '4'      => __('4 columns', 'fl-simple-posts'),
                         )
+                    ),
+                    'grid_gutter' => array(
+                        'type'      => 'text',
+                        'label'         => __('Grid gutter', 'fl-simple-posts'),
+                        'default'   => '30',
+                        'description'   => __('Gutter between posts', 'fl-simple-posts'),
+                    ),
+                    'grid_spacing' => array(
+                        'type'      => 'text',
+                        'label'         => __('Grid spacing', 'fl-simple-posts'),
+                        'default'   => '30',
+                        'description'   => __('Spacing below posts', 'fl-simple-posts'),
                     ),
                     'posts_per_page' => array(
                         'type'      => 'text',

@@ -1,4 +1,4 @@
-<div class="col-sm-<?php echo $settings->grid_size; ?>">
+<div class="fl-sp-col-<?php echo $settings->grid_size; ?>">
 	<div id="post-<?php the_ID(); ?>">
 
 		<div class="fl-sp-entry">
@@ -59,6 +59,12 @@
 
 			<?php } else { ?>
 
+			<?php } ?>
+			
+			<?php if( $settings->show_content == 'excerpt' && $settings->show_readmore == 'yes' ) { ?>
+				<div class="fl-sp-readmore">
+					<a href="<?php the_permalink(); ?>" class="btn btn-default"><?php _e('Read more', 'fl-simple-posts'); ?></a>
+				</div>
 			<?php } ?>
 
 			</div><!-- end fl-sp-content -->

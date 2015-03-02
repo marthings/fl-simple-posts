@@ -25,7 +25,7 @@ if($query->have_posts()) :
 
 	if ($settings->template == 'grid' ) {
 
-		echo '<div class="row">';
+		echo '<div class="fl-sp-row">';
 
 		while($query->have_posts()) {
 
