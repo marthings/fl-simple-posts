@@ -1,73 +1,57 @@
-	<li id="post-<?php the_ID(); ?>">
+<li id="post-<?php the_ID(); ?>" <?php post_class('fl-sp-entry'); ?>>
 
-		<div class="fl-sp-entry">
+	<div class="fl-sp-content">
 
-			<?php if(has_post_thumbnail() && $settings->show_thumbnail == 'yes') { ?>
+	<?php if($settings->list_icon) { ?>
+		<i class="fl-sp-list-icon <?php echo $settings->list_icon; ?>"></i>
+	<?php }  // End list_icon ?>
 
-				<div class="fl-sp-thumbnail">
-					<a href="<?php the_permalink(); ?>">
-					<?php
-						if ($settings->custom_thumb ) {
-							the_post_thumbnail( $settings->custom_thumb );
-						} else {
-							the_post_thumbnail( $settings->thumb_size );
-						}
-					?>
-					</a>
-				</div>
+	<?php if ($settings->show_heading == 'yes' ) { ?>
 
-			<?php }  // End has_post_thumbnail ?>
+		<a class="fl-sp-list-heading" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 
-			<div class="fl-sp-content">
+	<?php } ?>
 
-			<?php if ($settings->show_heading == 'yes' ) { ?>
+	<div class="fl-sp-meta">
 
-			<<?php echo $settings->heading_size; ?> class="fl-sp-heading"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></<?php echo $settings->heading_size; ?>>
+		<?php if ($settings->show_author == 'yes' ) { ?>
 
-			<?php } ?>
+			<span class="fl-sp-author-by"><?php _e('Posted by','fl-simple-posts') ?></span> <span class="fl-sp-author-name"><?php the_author(); ?></span>
 
-			<div class="fl-sp-meta">
+		<?php } ?>
 
-				<?php if ($settings->show_author == 'yes' ) { ?>
+		<?php if ($settings->show_date == 'yes' ) { ?>
 
-					<span class="fl-sp-author-by"><?php _e('Posted by','fl-simple-posts') ?></span> <span class="fl-sp-author-name"><?php the_author(); ?></span>
+			<span class="fl-sp-date-on"><?php _e('on','fl-simple-posts') ?></span> <span class="fl-sp-date"><?php the_time('F j, Y'); ?></span>
 
-				<?php } ?>
+		<?php } ?>
 
-				<?php if ($settings->show_date == 'yes' ) { ?>
+		<?php if ($settings->show_category == 'yes' ) { ?>
 
-					<span class="fl-sp-date-on"><?php _e('on','fl-simple-posts') ?></span> <span class="fl-sp-date"><?php the_time('F j, Y'); ?></span>
+			<span class="fl-sp-categories"><?php the_category(' '); ?></span>
 
-				<?php } ?>
+		<?php } ?>
 
-				<?php if ($settings->show_category == 'yes' ) { ?>
+	</div>
 
-					<span class="fl-sp-categories"><?php the_category(' '); ?></span>
+	<?php if($settings->show_content == 'excerpt' ) { ?>
 
-				<?php } ?>
+		<?php the_excerpt(); ?>
 
-			</div>
+	<?php } elseif($settings->show_content == 'full') { ?>
 
-			<?php if($settings->show_content == 'excerpt' ) { ?>
+		<?php the_content(); ?>
 
-				<?php the_excerpt(); ?>
+	<?php } else { ?>
 
-			<?php } elseif($settings->show_content == 'full') { ?>
+	<?php } ?>
 
-				<?php the_content(); ?>
+	<?php if( $settings->show_content == 'excerpt' && $settings->show_readmore == 'yes' ) { ?>
+		<div class="fl-sp-readmore">
+			<a href="<?php the_permalink(); ?>" class="btn btn-default"><?php _e('Read more', 'fl-simple-posts'); ?></a>
+		</div>
+	<?php } ?>
 
-			<?php } else { ?>
+	</div><!-- end fl-sp-content -->
 
-			<?php } ?>
-
-			<?php if( $settings->show_content == 'excerpt' && $settings->show_readmore == 'yes' ) { ?>
-				<div class="fl-sp-readmore">
-					<a href="<?php the_permalink(); ?>" class="btn btn-default"><?php _e('Read more', 'fl-simple-posts'); ?></a>
-				</div>
-			<?php } ?>
-
-			</div><!-- end fl-sp-content -->
-
-		</div><!-- end fl-sp-entry -->
-
-</li><!-- end .post -->
+</li><!-- end .fl-sp-entry -->

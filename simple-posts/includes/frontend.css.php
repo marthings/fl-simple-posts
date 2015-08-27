@@ -11,42 +11,55 @@
  *
  */
 
-	if( $settings->normal_layout == "imageleft") { ?>
-	.fl-simple-post-normal .fl-sp-thumbnail {
+?>
 
-	}
-	.fl-simple-post-normal .imageleft .fl-sp-thumbnail {
-		float:left;
-		padding:0 20px 20px 0;
-		width:<?php echo $settings->imageleft_size; ?>%;
-	}
-	.fl-simple-post-normal .imageleft .fl-sp-thumbnail img {
-		max-width:100%;
-		height:auto;
-	}
-	.fl-simple-post-normal .imageleft .fl-sp-content {
-		float:left;
-		width:<?php echo $settings->imageleft_contentsize; ?>%;
-	}
-		
-<?php } ?>
-
-.fl-sp-row { 
-	margin-right: -<?php echo $settings->grid_gutter; ?>px;
-	margin-left: -<?php echo $settings->grid_gutter; ?>px;
-}
-.fl-sp-row:after {
-  content:"";
-  display:table;
-  clear:both;
-}
-	
-.fl-simple-post-grid [class^=fl-sp-col-]{
-	float:left;
-	position: relative;
-	min-height: 1px;
-	padding-right: <?php echo $settings->grid_gutter; ?>px;
-	padding-left: <?php echo $settings->grid_gutter; ?>px;
-	margin-bottom: <?php echo $settings->grid_spacing; ?>px;
+.fl-sp-imageleft {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
+.fl-sp-imageleft .fl-sp-thumbnail {
+  -webkit-box-flex: 1 1 <?php echo $settings->imageleft_size; ?>%;
+  -webkit-flex: 1 1 <?php echo $settings->imageleft_size; ?>%;
+  -ms-flex: 1 1 <?php echo $settings->imageleft_size; ?>%;
+  flex: 1 1 <?php echo $settings->imageleft_size; ?>%;
+}
+
+.fl-sp-imageleft .fl-sp-content {
+  -webkit-box-flex: 1 1 <?php echo $settings->imageleft_contentsize; ?>%;
+  -webkit-flex: 1 1 <?php echo $settings->imageleft_contentsize; ?>%;
+  -ms-flex: 1 1 <?php echo $settings->imageleft_contentsize; ?>%;
+  flex: 1 1 <?php echo $settings->imageleft_contentsize; ?>%;
+	padding:20px;
+}
+
+.fl-sp-thumbnail {
+	margin-bottom:<?php echo $settings->thumb_spacing; ?>;
+}
+
+.fl-node-<?php echo $id; ?> .fl-sp-entry {
+	border-color:#<?php echo $settings->border_color; ?>;
+	border-style:solid;
+	border-width:<?php echo $settings->border_size; ?>px;
+	border-radius:<?php echo $settings->border_radius; ?>px;
+	background:#<?php echo $settings->background_color; ?>;
+	box-shadow:<?php echo $settings->box_shadow_settings; ?> #<?php echo $settings->box_shadow; ?>;
+	margin-top:<?php echo $settings->block_margin_top; ?>px;
+	margin-bottom:<?php echo $settings->block_margin_bottom; ?>px;
+	margin-left:<?php echo $settings->block_margin_left; ?>px;
+	margin-right:<?php echo $settings->block_margin_right; ?>px;
+}
+
+.fl-node-<?php echo $id; ?> .fl-sp-content {
+	padding:<?php echo $settings->block_padding_content; ?>px <?php echo $settings->block_padding_content; ?>px <?php echo $settings->block_padding_content; ?>px <?php echo $settings->block_padding_content; ?>px;
+	padding-top:<?php echo $settings->block_padding_top; ?>px;
+	padding-bottom:<?php echo $settings->block_padding_bottom; ?>px;
+	padding-left:<?php echo $settings->block_padding_left; ?>px;
+	padding-right:<?php echo $settings->block_padding_right; ?>px;
+}
+
+.fl-node-<?php echo $id; ?> .fl-sp-list .fl-sp-entry {
+	padding:<?php echo $settings->list_spacing; ?> 0px;
+}

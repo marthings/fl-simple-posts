@@ -27,6 +27,7 @@ class FLSimplePostsModule extends FLBuilderModule {
          * Use these methods to enqueue css and js already
          * registered or to register and enqueue your own.
          */
+        // $this->add_js( 'minigrid', $this->url . 'js/minigrid.js', array(), '', true ); 
     }
 
     /**
@@ -90,10 +91,10 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                                 'fields'        => array('grid_size','grid_gutter','grid_spacing')
                             ),
                             'normal'      => array(
-                                'fields'        => array('normal_layout')
+                                'fields'        => array('normal_layout','imageleft_size','imageleft_contentsize')
                             ),
                             'list'      => array(
-                                'fields'        => array('list_class')
+                                'fields'        => array('list_class','list_icon','list_spacing')
                             )
                         )
                     ),
@@ -128,16 +129,40 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                         'label'         => __('Grid size', 'fl-simple-posts'),
                         'default'       => '4',
                         'options'       => array(
-                            '2'      => __('2 columns', 'fl-simple-posts'),
-                            '3'      => __('3 columns', 'fl-simple-posts'),
-                            '4'      => __('4 columns', 'fl-simple-posts'),
+                            '6'      => __('2 columns', 'fl-simple-posts'),
+                            '4'      => __('3 columns', 'fl-simple-posts'),
+                            '3'      => __('4 columns', 'fl-simple-posts'),
                         )
                     ),
-                    'grid_gutter' => array(
-                        'type'      => 'text',
-                        'label'         => __('Grid gutter', 'fl-simple-posts'),
-                        'default'   => '30',
-                        'description'   => __('Gutter between posts', 'fl-simple-posts'),
+                    'grid_size_xs'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Grid size extra small screens', 'fl-simple-posts'),
+                        'default'       => '4',
+                        'options'       => array(
+                            '6'      => __('2 columns', 'fl-simple-posts'),
+                            '4'      => __('3 columns', 'fl-simple-posts'),
+                            '3'      => __('4 columns', 'fl-simple-posts'),
+                        )
+                    ),
+                    'grid_size_sm'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Grid size small screens', 'fl-simple-posts'),
+                        'default'       => '4',
+                        'options'       => array(
+                            '6'      => __('2 columns', 'fl-simple-posts'),
+                            '4'      => __('3 columns', 'fl-simple-posts'),
+                            '3'      => __('4 columns', 'fl-simple-posts'),
+                        )
+                    ),
+                    'grid_size_md'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Grid size medium screens', 'fl-simple-posts'),
+                        'default'       => '4',
+                        'options'       => array(
+                            '6'      => __('2 columns', 'fl-simple-posts'),
+                            '4'      => __('3 columns', 'fl-simple-posts'),
+                            '3'      => __('4 columns', 'fl-simple-posts'),
+                        )
                     ),
                     'grid_spacing' => array(
                         'type'      => 'text',
@@ -183,31 +208,21 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                         ),
                         'toggle'        => array(
                             'yes'      => array(
-                                'fields'        => array('thumb_size')
+                                'fields'        => array('thumb_size','thumb_spacing')
                             ),
                             'no'      => array()
                         )
                     ),
-                    'thumb_size'   => array(
-                        'type'          => 'select',
-                        'label'         => __('Thumbnail size', 'fl-simple-posts'),
-                        'default'       => 'thumbnail',
-                        'options'       => array(
-                            'thumbnail'      => __('thumbnail', 'fl-simple-posts'),
-                            'medium'      => __('medium', 'fl-simple-posts'),
-                            'large'      => __('large', 'fl-simple-posts'),
-                            'custom'      => __('custom', 'fl-simple-posts'),
-                        ),
-                        'toggle'        => array(
-                            'custom'      => array(
-                                'fields'        => array('custom_thumb')
-                            )
-                        )
+                    'thumb_size' => array(
+                        'type'          => 'photo-sizes',
+                        'label'         => __('Photo Sizes', 'fl-builder'),
+                        'default'       => 'medium'
                     ),
-                    'custom_thumb' => array(
+                    'thumb_spacing' => array(
                         'type'      => 'text',
-                        'default'       => '',
-                        'label'         => __('Your size', 'fl-simple-posts'),
+                        'default'   => '10px',
+                        'size'      => '2',
+                        'label'         => __('Thumb spacing bottom', 'fl-simple-posts'),
                     ),
                     'show_category'   => array(
                         'type'          => 'select',
@@ -260,6 +275,17 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                         'label'         => __('List class', 'fl-simple-posts'),
                         'default'       => '',
                     ),
+                    'list_icon' => array(
+                        'type'          => 'icon',
+                        'label'         => __( 'List icon', 'fl-builder' ),
+                        'show_remove'   => true
+                    ),
+                    'list_spacing' => array(
+                        'type'  => 'text',
+                        'label' => __('List spacing', 'fl-simple-posts'),
+                        'size'  => '3',
+                        'description' => 'Padding in px',
+                    ),
                 )
             )
         )
@@ -267,5 +293,126 @@ FLBuilder::register_module('FLSimplePostsModule', array(
     'content'   => array(
         'title'         => __('Content', 'fl-simple-posts'),
         'file'          => FL_BUILDER_DIR . 'includes/loop-settings.php',
-    )
+    ),
+    'styling'   => array(
+        'title'         => __('Post styling', 'fl-simple-posts'),
+        'sections'      => array( // Tab Sections
+            'general'       => array( // Section
+                'title'         => __('Post styling', 'fl-simple-posts'), // Section Title
+                'fields'        => array( // Section Fields
+                  'border_size' => array(
+                    'type'  => 'text',
+                    'label' => __('Border width', 'fl-simple-posts'),
+                    'description' => 'px',
+                    'size'  => '3',
+                    'default' => '0',
+                  ),
+                  'border_color' => array(
+                    'type'  => 'color',
+                    'label' => __('Border color', 'fl-simple-posts'),
+                    'size'  => '3',
+                  ),
+                  'box_shadow_settings' => array(
+                    'type'  => 'text',
+                    'label' => __('Box shadow settings', 'fl-simple-posts'),
+                    'default' => '0px 0px 0px 0px',
+                    'placeholder' => __('0px 1px 3px 0px', 'fl-simple-posts'),
+                    'description' => __('Example format', 'fl-simple-posts'),
+                  ),
+                  'box_shadow' => array(
+                    'type'  => 'color',
+                    'label' => __('Box shadow', 'fl-simple-posts'),
+                    'size'  => '3',
+                    'show_reset'  => true,
+                  ),
+                  'border_radius' => array(
+                    'type'  => 'text',
+                    'label' => __('Border radius', 'fl-simple-posts'),
+                    'size'  => '3',
+                    'description' => 'px',
+                    'default' => '0',
+                  ),
+                  'background_color' => array(
+                    'type'  => 'color',
+                    'label' => __('Background color', 'fl-simple-posts'),
+                    'size'  => '3',
+                    'default' => 'transparent',
+                  ),
+                )
+              ),
+              'padding'       => array( // Section
+                  'title'         => __('Padding', 'fl-simple-posts'), // Section Title
+                  'fields'        => array( // Section Fields
+                    'block_padding_content' => array(
+                      'type'  => 'text',
+                      'label' => __('Padding content', 'fl-simple-posts'),
+                      'size'  => '4',
+                      'placeholder' => '0',
+                      'default' => '0',
+                    ),
+                    'block_padding_top' => array(
+                      'type'  => 'text',
+                      'label' => __('Padding top', 'fl-simple-posts'),
+                      'size'  => '4',
+                      'placeholder' => '0',
+                      'default' => '0',
+                    ),
+                    'block_padding_bottom' => array(
+                      'type'  => 'text',
+                      'label' => __('Padding bottom', 'fl-simple-posts'),
+                      'size'  => '4',
+                      'placeholder' => '0',
+                      'default' => '0',
+                    ),
+                    'block_padding_left' => array(
+                      'type'  => 'text',
+                      'label' => __('Padding left', 'fl-simple-posts'),
+                      'size'  => '4',
+                      'placeholder' => '0',
+                      'default' => '0',
+                    ),
+                    'block_padding_right' => array(
+                      'type'  => 'text',
+                      'label' => __('Padding right', 'fl-simple-posts'),
+                      'size'  => '4',
+                      'placeholder' => '0',
+                      'default' => '0',
+                    ),
+                  )
+                ),
+                'margin'       => array( // Section
+                    'title'         => __('Margin', 'fl-simple-posts'), // Section Title
+                    'fields'        => array( // Section Fields
+                      'block_margin_top' => array(
+                        'type'  => 'text',
+                        'label' => __('Margin top', 'fl-simple-posts'),
+                        'size'  => '4',
+                        'placeholder' => '0',
+                        'default' => '0',
+                      ),
+                      'block_margin_bottom' => array(
+                        'type'  => 'text',
+                        'label' => __('Margin bottom', 'fl-simple-posts'),
+                        'size'  => '4',
+                        'placeholder' => '0',
+                        'default' => '0',
+                      ),
+                      'block_margin_left' => array(
+                        'type'  => 'text',
+                        'label' => __('Margin left', 'fl-simple-posts'),
+                        'size'  => '4',
+                        'placeholder' => '0',
+                        'default' => '0',
+                      ),
+                      'block_margin_right' => array(
+                        'type'  => 'text',
+                        'label' => __('Margin right', 'fl-simple-posts'),
+                        'size'  => '4',
+                        'placeholder' => '0',
+                        'default' => '0',
+                      ),
+                    )
+                  )
+            )
+    ),
 ));

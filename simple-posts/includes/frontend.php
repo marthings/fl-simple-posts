@@ -25,7 +25,7 @@ if($query->have_posts()) :
 
 	if ($settings->template == 'grid' ) {
 
-		echo '<div class="fl-sp-row">';
+		echo '<div class="row">';
 
 		while($query->have_posts()) {
 
@@ -39,7 +39,7 @@ if($query->have_posts()) :
 
 	} elseif ($settings->template == 'list' ) {
 
-		echo '<ul class="' . $settings->list_class . '">';
+		echo '<ul class="fl-sp-list ' . $settings->list_class . '">';
 
 		while($query->have_posts()) {
 

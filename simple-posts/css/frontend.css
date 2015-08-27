@@ -6,23 +6,17 @@
  	margin-bottom:10px;
  }
 
- .fl-sp-thumbnail img {
- 	max-width: 100%;
- 	height:auto;
+ .fl-sp-list {
+   list-style:none;
+   margin:0;
+   padding:0;
  }
 
-.fl-sp-col-2 {
-	width:50%;
-}
+ .fl-sp-list-icon {
+   margin-right:5px;
+ }
 
-.fl-sp-col-3 {
-	width:33.33333333%;
+.fl-sp-thumbnail img {
+	max-width: 100%;
+	height:auto;
 }
-.fl-sp-col-4 {
-	width:25%;
-}
-
-.fl-simple-post-grid .fl-sp-thumbnail {
-	margin-bottom:20px;
-}
-

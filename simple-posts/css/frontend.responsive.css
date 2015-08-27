@@ -1,18 +1,7 @@
 /**
- * This file should contain frontend styles that 
+ * This file should contain frontend styles that
  * will be applied to all module instances once
  * the responsive breakpoint has been reached. The
- * responsive breakpoint can be set in the global 
+ * responsive breakpoint can be set in the global
  * settings or individual page settings.
  */
- 
-.fl-simple-post-grid [class^=fl-sp-col-] {
-	width:auto;
-	float:none;
-}
-
-.fl-sp-col-2,
-.fl-sp-col-3,
-.fl-sp-col-4 {
-	width:auto;
-}
