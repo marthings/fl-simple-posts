@@ -1,12 +1,7 @@
-<?php if($settings->normal_layout == "imageleft" ) { ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class('fl-sp-entry fl-sp-imageleft'); ?>>
 
-<?php } else { ?>
+<div id="post-<?php the_ID(); ?>" <?php post_class('fl-sp-entry fl-sp-gallery'); ?>>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class('fl-sp-entry'); ?>>
-
-<?php } ?>
 
 	<?php if(has_post_thumbnail() && $settings->show_thumbnail == "yes" ) { ?>
 

@@ -36,7 +36,7 @@
 }
 
 .fl-sp-thumbnail {
-	margin-bottom:<?php echo $settings->thumb_spacing; ?>;
+	margin-bottom:<?php echo $settings->thumb_spacing; ?>px;
 }
 
 .fl-node-<?php echo $id; ?> .fl-sp-entry {
@@ -60,6 +60,21 @@
 	padding-right:<?php echo $settings->block_padding_right; ?>px;
 }
 
+.fl-node-<?php echo $id; ?> .fl-sp-content {
+  color:#<?php echo $settings->text_color; ?> !important;
+}
+
+.fl-node-<?php echo $id; ?> .fl-sp-content .fl-sp-heading a,
+.fl-node-<?php echo $id; ?> .fl-sp-content .fl-sp-meta a,
+.fl-node-<?php echo $id; ?> .fl-sp-content p a  {
+  color:#<?php echo $settings->link_color; ?> !important;
+}
+
 .fl-node-<?php echo $id; ?> .fl-sp-list .fl-sp-entry {
 	padding:<?php echo $settings->list_spacing; ?> 0px;
+}
+
+.fl-node-<?php echo $id; ?> .fl-simple-post-gallery .fl-sp-content {
+	background-color: rgba(<?php echo implode(',', FLBuilderColor::hex_to_rgb($settings->background_color)) ?>, <?php echo $settings->background_opacity/100; ?>);
+	box-shadow:<?php echo $settings->box_shadow_settings; ?> #<?php echo $settings->box_shadow; ?>;
 }

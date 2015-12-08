@@ -27,7 +27,7 @@ class FLSimplePostsModule extends FLBuilderModule {
          * Use these methods to enqueue css and js already
          * registered or to register and enqueue your own.
          */
-        // $this->add_js( 'minigrid', $this->url . 'js/minigrid.js', array(), '', true ); 
+        $this->add_js( 'masonry', $this->url . 'js/masonry.min.js', array(), '', true );
     }
 
     /**
@@ -85,10 +85,11 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                             'grid'      => __('grid', 'fl-simple-posts'),
                             'normal'      => __('normal', 'fl-simple-posts'),
                             'list'      => __('list', 'fl-simple-posts'),
+                            'gallery'      => __('gallery', 'fl-simple-posts'),
                         ),
                         'toggle'        => array(
                             'grid'      => array(
-                                'fields'        => array('grid_size','grid_gutter','grid_spacing')
+                                'fields'        => array('masonry','grid_size','grid_gutter','grid_spacing','grid_size','grid_size_xs','grid_size_sm','grid_size_md')
                             ),
                             'normal'      => array(
                                 'fields'        => array('normal_layout','imageleft_size','imageleft_contentsize')
@@ -103,8 +104,8 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                         'label'         => __('Layout', 'fl-simple-posts'),
                         'default'       => 'imageover',
                         'options'       => array(
-                            'imageover'      => __('Image over heading', 'fl-simple-posts'),
                             'imageleft'      => __('Image to left', 'fl-simple-posts'),
+                            'imageover'      => __('Image over heading', 'fl-simple-posts'),
                         ),
                         'toggle'        => array(
                             'imageleft'      => array(
@@ -123,6 +124,15 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                         'label'         => __('Content size', 'fl-simple-posts'),
                         'default'   => '70',
                         'description'   => __('Width in %', 'fl-simple-posts'),
+                    ),
+                    'masonry'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Use masonry', 'fl-simple-posts'),
+                        'default'       => 'no',
+                        'options'       => array(
+                            'no'      => __('Inactive', 'fl-simple-posts'),
+                            'yes'      => __('Active', 'fl-simple-posts'),
+                        )
                     ),
                     'grid_size'   => array(
                         'type'          => 'select',
@@ -177,7 +187,7 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                     'show_heading'   => array(
                         'type'          => 'select',
                         'label'         => __('Show heading', 'fl-simple-posts'),
-                        'default'       => 'no',
+                        'default'       => 'yes',
                         'options'       => array(
                             'yes'      => __('yes', 'fl-simple-posts'),
                             'no'      => __('no', 'fl-simple-posts'),
@@ -196,12 +206,13 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                             'h2'      => __('h2', 'fl-simple-posts'),
                             'h3'      => __('h3', 'fl-simple-posts'),
                             'p'      => __('Paragraph', 'fl-simple-posts'),
+                            'span'      => __('None', 'fl-simple-posts'),
                         )
                     ),
                     'show_thumbnail'   => array(
                         'type'          => 'select',
                         'label'         => __('Show thumbnail', 'fl-simple-posts'),
-                        'default'       => 'no',
+                        'default'       => 'yes',
                         'options'       => array(
                             'yes'      => __('yes', 'fl-simple-posts'),
                             'no'      => __('no', 'fl-simple-posts'),
@@ -254,7 +265,7 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                     'show_content'   => array(
                         'type'          => 'select',
                         'label'         => __('Show content', 'fl-simple-posts'),
-                        'default'       => 'yes',
+                        'default'       => 'excerpt',
                         'options'       => array(
                             'full'      => __('full', 'fl-simple-posts'),
                             'excerpt'      => __('excerpt', 'fl-simple-posts'),
@@ -337,6 +348,25 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                     'label' => __('Background color', 'fl-simple-posts'),
                     'size'  => '3',
                     'default' => 'transparent',
+                  ),
+                  'background_opacity' => array(
+                    'type'  => 'text',
+                    'label' => __('Background opacity', 'fl-simple-posts'),
+                    'default'  => '80',
+                    'size'  => '2',
+                    'description' => __('%', 'fl-simple-posts'),
+                  ),
+                  'text_color' => array(
+                    'type'  => 'color',
+                    'label' => __('Text color', 'fl-simple-posts'),
+                    'size'  => '3',
+                    'default' => 'inherit',
+                  ),
+                  'link_color' => array(
+                    'type'  => 'color',
+                    'label' => __('Link color', 'fl-simple-posts'),
+                    'size'  => '3',
+                    'default' => 'inherit',
                   ),
                 )
               ),

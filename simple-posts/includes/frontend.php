@@ -20,7 +20,7 @@ $query = FLBuilderLoop::query($settings);
 if($query->have_posts()) :
 
 ?>
-<div class="fl-simple-post fl-simple-post-<?php echo $settings->template; ?>" itemscope="itemscope" itemtype="http://schema.org/Blog">
+<div class="fl-simple-post fl-simple-post-<?php echo $settings->template; ?><?php if ($settings->masonry == 'yes' ) { ?> masonry<?php } ?>" itemscope="itemscope" itemtype="http://schema.org/Blog">
 	<?php
 
 	if ($settings->template == 'grid' ) {
@@ -36,6 +36,16 @@ if($query->have_posts()) :
 		}
 
 		echo '</div>';
+
+	} elseif ($settings->template == 'gallery' ) {
+
+		while($query->have_posts()) {
+
+			$query->the_post();
+
+				include $module->dir . 'includes/template-gallery.php';
+
+		}
 
 	} elseif ($settings->template == 'list' ) {
 

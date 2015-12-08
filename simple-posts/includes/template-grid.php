@@ -1,4 +1,4 @@
-<div class="col-<?php echo $settings->grid_size; ?> col-sm-<?php echo $settings->grid_size_sm; ?> col-md-<?php echo $settings->grid_size_md; ?>">
+<div class="fl-sp-col col-<?php echo $settings->grid_size; ?> col-sm-<?php echo $settings->grid_size_sm; ?> col-md-<?php echo $settings->grid_size_md; ?>">
 	<div id="post-<?php the_ID(); ?>" <?php post_class('fl-sp-entry'); ?>>
 
 			<?php if(has_post_thumbnail() && $settings->show_thumbnail == "yes") { ?>
@@ -55,7 +55,11 @@
 
 			<?php if( $settings->show_content == 'excerpt' && $settings->show_readmore == 'yes' ) { ?>
 				<div class="fl-sp-readmore">
-					<a href="<?php the_permalink(); ?>" class="btn btn-default"><?php _e('Read more', 'fl-simple-posts'); ?></a>
+					<div class="fl-button-wrap fl-button-width-auto fl-button-left">
+						<a href="<?php the_permalink(); ?>" target="_self" class="fl-button" role="button">
+							<span class="fl-button-text"><?php _e('Read more','fl-simple-posts'); ?></span>
+						</a>
+					</div>
 				</div>
 			<?php } ?>
 
