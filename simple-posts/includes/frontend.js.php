@@ -8,9 +8,4 @@
  * $id The module's ID.
  * $settings The module's settings.
  *
- * Example:
  */
-console.log('Module ID: <?php echo $id; ?>');
-console.log('Text: <?php echo $settings->template; ?>');
-
-<?php $module->example_method(); ?>

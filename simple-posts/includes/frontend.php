@@ -72,8 +72,14 @@ if($query->have_posts()) :
 		}
 	}
 
+	// Render the pagination.
+	if($settings->pagination == 'yes') { ?>
 
-	?>
+		<div class="fl-builder-pagination">
+			<?php FLBuilderLoop::pagination($query); ?>
+		</div>
+
+	<?php } ?>
 </div>
 <?php endif; ?>
 <?php wp_reset_postdata(); ?>

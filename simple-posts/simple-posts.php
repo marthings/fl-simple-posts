@@ -125,6 +125,15 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                         'default'   => '70',
                         'description'   => __('Width in %', 'fl-simple-posts'),
                     ),
+                    'pagination'   => array(
+                        'type'          => 'select',
+                        'label'         => __('Use pagination', 'fl-simple-posts'),
+                        'default'       => 'no',
+                        'options'       => array(
+                            'no'      => __('No', 'fl-simple-posts'),
+                            'yes'      => __('Yes', 'fl-simple-posts'),
+                        )
+                    ),
                     'masonry'   => array(
                         'type'          => 'select',
                         'label'         => __('Use masonry', 'fl-simple-posts'),
@@ -294,7 +303,7 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                     'list_spacing' => array(
                         'type'  => 'text',
                         'label' => __('List spacing', 'fl-simple-posts'),
-                        'size'  => '3',
+                        'size'  => '4',
                         'description' => 'Padding in px',
                     ),
                 )

@@ -62,8 +62,23 @@
 .masonry {
   margin-left: -15px;
   margin-right: -15px;
+  margin-bottom: 60px;
 }
 
 .masonry .fl-sp-col {
   float: none;
+}
+
+@media (max-width: 480px) {
+  .masonry .fl-sp-col {
+    width: 100%;
+  }
+}
+
+.masonry .fl-builder-pagination {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  padding: 0;
 }
