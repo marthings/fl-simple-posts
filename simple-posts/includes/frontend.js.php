@@ -9,3 +9,9 @@
  * $settings The module's settings.
  *
  */
+
+<?php if ($settings->masonry == 'yes' ) { ?>
+ (jQuery)('.fl-node-<?php echo $id; ?>').masonry({
+   itemSelector: '.fl-sp-col'
+ });
+<?php } ?>

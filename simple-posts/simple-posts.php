@@ -21,6 +21,7 @@ class FLSimplePostsModule extends FLBuilderModule {
             'url'           => FL_SIMPLE_POSTS_URL . 'simple-posts/',
             'editor_export' => true, // Defaults to true and can be omitted.
             'enabled'       => true, // Defaults to true and can be omitted.
+            'partial_refresh' => true
         ));
 
         /**
