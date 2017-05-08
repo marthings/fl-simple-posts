@@ -28,7 +28,6 @@ class FLSimplePostsModule extends FLBuilderModule {
          * Use these methods to enqueue css and js already
          * registered or to register and enqueue your own.
          */
-        $this->add_js( 'masonry', $this->url . 'js/masonry.min.js', array(), '', true );
     }
 
     /**
@@ -90,7 +89,7 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                         ),
                         'toggle'        => array(
                             'grid'      => array(
-                                'fields'        => array('masonry','grid_size','grid_gutter','grid_spacing','grid_size','grid_size_xs','grid_size_sm','grid_size_md')
+                                'fields'        => array('grid_stretch','grid_size','grid_gutter','grid_spacing','grid_size','grid_size_xs','grid_size_sm','grid_size_md')
                             ),
                             'normal'      => array(
                                 'fields'        => array('normal_layout','imageleft_size','imageleft_contentsize')
@@ -135,13 +134,13 @@ FLBuilder::register_module('FLSimplePostsModule', array(
                             'yes'      => __('Yes', 'fl-simple-posts'),
                         )
                     ),
-                    'masonry'   => array(
+                    'grid_stretch'   => array(
                         'type'          => 'select',
-                        'label'         => __('Use masonry', 'fl-simple-posts'),
-                        'default'       => 'no',
+                        'label'         => __('Stretch columns', 'fl-simple-posts'),
+                        'default'       => 'align-items-no-stretch',
                         'options'       => array(
-                            'no'      => __('Inactive', 'fl-simple-posts'),
-                            'yes'      => __('Active', 'fl-simple-posts'),
+                            'd-flex align-items-stretch'      => __('Yes', 'fl-simple-posts'),
+                            'align-items-no-stretch'      => __('No', 'fl-simple-posts'),
                         )
                     ),
                     'grid_size'   => array(

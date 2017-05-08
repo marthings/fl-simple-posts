@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Simple post module
  * Description: A plugin to list posts with a certain template
- * Version: 1.3.5
+ * Version: 1.4
  * Author: MWi AB
  * Author URI: http://mwi.se
  */

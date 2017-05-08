@@ -1,4 +1,4 @@
-<div class="fl-sp-col col-<?php echo $settings->grid_size; ?> col-sm-<?php echo $settings->grid_size_sm; ?> col-md-<?php echo $settings->grid_size_md; ?>">
+<div class="fl-sp-col <?php echo $settings->grid_stretch; ?> col-<?php echo $settings->grid_size; ?> col-sm-<?php echo $settings->grid_size_sm; ?> col-md-<?php echo $settings->grid_size_md; ?>">
 	<div id="post-<?php the_ID(); ?>" <?php post_class('fl-sp-entry'); ?>>
 
 			<?php if(has_post_thumbnail() && $settings->show_thumbnail == "yes") { ?>

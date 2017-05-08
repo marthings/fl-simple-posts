@@ -25,7 +25,7 @@ if($query->have_posts()) :
 
 	if ($settings->template == 'grid' ) {
 
-		echo '<div class="row">';
+		echo '<div class="row ' .$settings->grid_stretch. '">';
 
 		while($query->have_posts()) {
 
